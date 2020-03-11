@@ -6,6 +6,24 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 
 class App extends React.Component {
+  // Initializing state without a constructor
+  state = {
+    fishes: {},
+    order: {}
+  };
+  // Creating method to pass into inventory > addfishform
+  addFish = fish => {
+    // console.log("Adding a fish!");
+    // 1. Take a copy of the existing state
+    const fishes = { ...this.state.fishes };
+    // 2. Add our new fish to that fishes variable
+    fishes[`fish${Date.now()}`] = fish;
+    // 3. Set the new fishes object to state
+    // fishes: fishes the same as fishes
+    this.setState({
+      fishes
+    });
+  };
   render() {
     return (
       <div className="catch-of-the-day">
@@ -13,7 +31,7 @@ class App extends React.Component {
           <Header tagline="Fresh Seafood Market" />
         </div>
         <Order />
-        <Inventory />
+        <Inventory addFish={this.addFish} />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-// Functional Component syntax
+// Stateless Functional Component syntax
 function Header(props) {
   return (
     <header className="top">
@@ -18,6 +19,11 @@ function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired
+};
+
 // Standard Function
 // function Component(props){
 //     return

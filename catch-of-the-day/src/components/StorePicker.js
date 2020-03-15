@@ -1,8 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { getFunName } from "../helpers";
 
 // Landing page component: allows you to name the store
 class StorePicker extends React.Component {
+  static propTypes = {
+    history: PropTypes.object
+  };
   // constructor runs before component mounts
   // example of binding; obselete with arrow func
   //   constructor() {

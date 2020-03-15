@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 //Components
 import Header from "./Header";
@@ -14,6 +15,11 @@ class App extends React.Component {
     fishes: {},
     order: {}
   };
+
+  static propTypes = {
+    match: PropTypes.object
+  };
+
   // Persist fish state via firebase external database
   componentDidMount() {
     const { params } = this.props.match;
